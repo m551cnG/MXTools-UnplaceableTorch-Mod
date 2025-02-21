@@ -1,70 +1,77 @@
-# This is an example mods.toml file. It contains the data relating to the loading mods.
-# There are several mandatory fields (#mandatory), and many more that are optional (#optional).
-# The overall format is standard TOML format, v0.5.0.
-# Note that there are a couple of TOML lists in this file.
-# Find more information on toml format here:  https://github.com/toml-lang/toml
-# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
-modLoader="javafml" #mandatory
-# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="${loader_version_range}" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
-# The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
-# Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license="${mod_license}"
-# A URL to refer people to when problems occur with this mod
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
-# A list of mods - how many allowed here is determined by the individual mod loader
-[[mods]] #mandatory
-# The modid of the mod
-modId="${mod_id}" #mandatory
-# The version number of the mod
-version="${mod_version}" #mandatory
-# A display name for the mod
-displayName="${mod_name}" #mandatory
-# A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-# A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
-# A file name (in the root of the mod JAR) containing a logo for display
-#logoFile="examplemod.png" #optional
-# A text field displayed in the mod UI
-#credits="" #optional
-# A text field displayed in the mod UI
-authors="${mod_authors}" #optional
-# Display Test controls the display for your mod in the server connection screen
-# MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
-# IGNORE_SERVER_VERSION means that your mod will not cause a red X if it's present on the server but not on the client. This is what you should use if you're a server only mod.
-# IGNORE_ALL_VERSION means that your mod will not cause a red X if it's present on the client or the server. This is a special case and should only be used if your mod has no server component.
-# NONE means that no display test is set on your mod. You need to do this yourself, see IExtensionPoint.DisplayTest for more information. You can define any scheme you wish with this value.
-# IMPORTANT NOTE: this is NOT an instruction as to which environments (CLIENT or DEDICATED SERVER) your mod loads on. Your mod should load (and maybe do nothing!) whereever it finds itself.
-#displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
+# 这是一个示例 mods.toml 文件。它包含了与加载模组相关的数据。
+# 其中有几个必填字段（#mandatory），以及许多可选字段（#optional）。
+# 整体格式符合 TOML v0.5.0 标准。
+# 请注意，此文件中包含几个 TOML 列表。
+# 可在此处找到有关 TOML 格式的更多信息：https://github.com/toml-lang/toml
 
-# The description text for the mod (multi line!) (#mandatory)
+# 要加载的模组加载器类型的名称 - 对于常规的 FML @Mod 模组，应为 javafml
+modLoader="javafml" #必填
+
+# 与上述模组加载器匹配的版本范围 - 对于常规的 FML @Mod，它将是 Forge 版本
+loaderVersion="1.20.1" #必填 这个通常会在每个 Minecraft 版本更新时由 Forge 调整。请查看我们的下载页面以获取版本列表。
+
+# 你的模组的许可证。这是必填的元数据，有助于更好地理解你的再分发权限。
+# 你可以在 https://choosealicense.com/ 查看可用的许可证选项。"All rights reserved"（保留所有权利）是默认的版权立场，因此这里默认采用此选项。
+license="MIT"
+
+# 发生问题时可以让用户参考的 URL
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #可选
+
+# 模组列表 - 允许的数量取决于具体的模组加载器
+[[mods]] #必填
+
+# 模组的 modid
+modId="mxt_unplacable_torch" #必填
+
+# 模组的版本号
+version="1.0.0" #必填
+
+# 模组的显示名称
+displayName="MXTools:Unplacable torch" #必填
+
+# 查询此模组更新的 URL。请参阅 JSON 更新规范：https://docs.minecraftforge.net/en/latest/misc/updatechecker/
+#updateJSONURL="https://change.me.example.invalid/updates.json" #可选
+
+# 在模组 UI 中显示的 "主页" URL
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #可选
+
+# 在模组 JAR 文件根目录中的标志文件名，用于显示
+#logoFile="examplemod.png" #可选
+
+# 在模组 UI 中显示的文本字段
+#credits="" #可选
+
+# 在模组 UI 中显示的文本字段
+authors="${mod_authors}" #可选
+
+# 显示测试控制了服务器连接屏幕中模组的显示方式
+# MATCH_VERSION 表示如果客户端和服务器的模组版本不同，则会显示红色 X。这是默认行为，如果你的模组包含服务器和客户端元素，应该选择此项。
+# IGNORE_SERVER_VERSION 表示如果模组仅存在于服务器但不存在于客户端，则不会显示红色 X。如果你的模组仅适用于服务器，应使用此选项。
+# IGNORE_ALL_VERSION 表示无论模组存在于客户端还是服务器，都不会显示红色 X。这是一个特殊情况，仅适用于不包含服务器组件的模组。
+# NONE 表示你的模组未设置任何显示测试，你需要自行定义。详情请参考 IExtensionPoint.DisplayTest。
+# 重要说明：这 **不是** 指定模组加载环境（客户端或独立服务器）的指令。你的模组应该在发现自己所处的环境时自行决定如何运行（可能是无操作）。
+#displayTest="MATCH_VERSION" # 如果未指定，则 MATCH_VERSION 是默认值 (#可选)
+
+# 模组的描述文本（可多行！）（#必填）
 description='''${mod_description}'''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.${mod_id}]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="${forge_version_range}" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
-    # BEFORE - This mod is loaded BEFORE the dependency
-    # AFTER - This mod is loaded AFTER the dependency
-    ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT, or SERVER
-    side="BOTH"
-# Here's another dependency
-[[dependencies.${mod_id}]]
-    modId="minecraft"
-    mandatory=true
-    # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
 
-# Features are specific properties of the game environment, that you may want to declare you require. This example declares
-# that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
-# stop your mod loading on the server for example.
+[[dependencies.mxt_unplacable_torch]]
+modId="forge"
+mandatory=true
+versionRange="[43.0.0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.mxt_unplacable_torch]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,)"
+ordering="NONE"
+side="BOTH"
+
+
+# 功能特性是游戏环境的特定属性，你可能希望声明你的模组需要它们。例如，此示例声明
+# 你的模组需要 OpenGL 版本 3.2 或更高版本。其他特性将在未来加入。它们是区分环境的，因此声明此项不会
+# 阻止你的模组在服务器上加载。
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
